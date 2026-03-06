@@ -1,0 +1,106 @@
+/**
+ * WooCommerce Block Styles
+ *
+ * Scoped to .epb-woo-products - only loads when block is present on page.
+ */
+
+.epb-woo-products {
+	padding: 1.5rem;
+}
+
+.epb-woo-products__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 1.5rem;
+}
+
+.epb-woo-product {
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: box-shadow 0.2s ease;
+}
+
+.epb-woo-product:hover {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.epb-woo-product__image {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+	background: #f5f5f5;
+}
+
+.epb-woo-product__content {
+	padding: 1rem;
+}
+
+.epb-woo-product__name {
+	margin: 0 0 0.5rem 0;
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+.epb-woo-product__name a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.epb-woo-product__name a:hover {
+	color: #3858e9;
+}
+
+.epb-woo-product__price {
+	margin: 0 0 1rem 0;
+	font-size: 1.1rem;
+	font-weight: 700;
+	color: #3858e9;
+}
+
+.epb-woo-product__button {
+	display: inline-block;
+	padding: 0.5rem 1rem;
+	background: #3858e9;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 4px;
+	font-size: 0.875rem;
+	font-weight: 500;
+	transition: background 0.2s ease;
+}
+
+.epb-woo-product__button:hover {
+	background: #2a45b8;
+	color: #fff;
+}
+
+/* Cart status */
+.epb-woo-product__actions {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+}
+
+.epb-woo-product__cart-status {
+	font-size: 0.8rem;
+	color: #666;
+}
+
+.epb-woo-product__cart-status.has-items {
+	color: #00a32a;
+	font-weight: 500;
+}
+
+/* Alignment support */
+.epb-woo-products.alignwide .epb-woo-products__grid {
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.epb-woo-products.alignfull {
+	padding-left: 2rem;
+	padding-right: 2rem;
+}

@@ -142,7 +142,7 @@ function epb_render_woo_products_block( $attributes ) {
 						<?php endif; ?>
 						<?php if ( $show_button ) : ?>
 							<div class="epb-woo-product__actions">
-								<a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="epb-woo-product__button">
+								<a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="wp-element-button">
 									View Product
 								</a>
 								<span class="epb-woo-product__cart-status" data-product-id="<?php echo esc_attr( $product->get_id() ); ?>"></span>

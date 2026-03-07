@@ -5,26 +5,14 @@
  */
 
 .epb-hello {
-	padding: 1.5rem;
-	border-radius: 8px;
 	background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
 }
 
-.epb-hello.has-border {
-	border: 2px solid #3858e9;
-}
-
 .epb-hello__heading {
-	margin: 0 0 0.5rem 0;
-	font-size: 1.5rem;
-	font-weight: 600;
 	color: inherit;
 }
 
 .epb-hello__message {
-	margin: 0;
-	font-size: 1rem;
-	opacity: 0.8;
 	color: inherit;
 }
 

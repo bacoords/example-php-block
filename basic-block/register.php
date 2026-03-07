@@ -35,20 +35,21 @@ add_action(
 				'style'           => 'epb-hello-style', // Frontend + Editor.
 
 				'attributes'      => array(
-					'heading'    => array(
+					'heading'      => array(
 						'type'    => 'string',
 						'default' => 'Hello, World!',
 						'label'   => 'Heading Text',
 					),
-					'message'    => array(
+					'headingLevel' => array(
+						'type'    => 'string',
+						'enum'    => array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ),
+						'default' => 'h2',
+						'label'   => 'Heading Level',
+					),
+					'message'      => array(
 						'type'    => 'string',
 						'default' => 'This block is registered entirely in PHP.',
 						'label'   => 'Message',
-					),
-					'showBorder' => array(
-						'type'    => 'boolean',
-						'default' => true,
-						'label'   => 'Show Border',
 					),
 				),
 				'supports'        => array(
@@ -66,20 +67,25 @@ add_action(
 					),
 				),
 				'render_callback' => function ( $attributes ) {
-					$border_class = $attributes['showBorder'] ? 'has-border' : '';
-					$wrapper      = get_block_wrapper_attributes(
+					$wrapper = get_block_wrapper_attributes(
 						array(
-							'class' => 'epb-hello ' . $border_class,
+							'class' => 'epb-hello',
 						)
 					);
 
+					$tag = in_array( $attributes['headingLevel'], array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ), true )
+						? $attributes['headingLevel']
+						: 'h2';
+
 					return sprintf(
 						'<div %s>
-						<h2 class="epb-hello__heading">%s</h2>
+						<%s class="epb-hello__heading">%s</%s>
 						<p class="epb-hello__message">%s</p>
 					</div>',
 						$wrapper,
+						$tag,
 						esc_html( $attributes['heading'] ),
+						$tag,
 						esc_html( $attributes['message'] )
 					);
 				},

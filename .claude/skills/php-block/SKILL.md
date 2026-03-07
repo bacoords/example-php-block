@@ -2,9 +2,12 @@
 
 Create WordPress blocks using PHP-only registration (WordPress 7.0+ `autoRegister` feature).
 
+More information: https://make.wordpress.org/core/2026/03/03/php-only-block-registration/
+
 ## When to Use
 
 Use this skill when the user wants to:
+
 - Create a block without build tools (no npm, no webpack)
 - Register a block entirely in PHP
 - Add a simple server-rendered block
@@ -18,6 +21,7 @@ my-block/
 ```
 
 For blocks with frontend interactivity:
+
 ```
 my-block/
 ├── register.php
@@ -60,6 +64,8 @@ add_action( 'init', function () {
 } );
 ```
 
+Refer to the official documentation for supported attributes: https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/
+
 ## Critical: JavaScript Loading
 
 **JavaScript CANNOT run in the block editor for autoRegister blocks.** The editor uses ServerSideRender, which only displays the PHP output.
@@ -96,12 +102,12 @@ add_action( 'init', function () {
 
 Attributes auto-generate editor controls based on type:
 
-| Type | Control |
-|------|---------|
-| `string` | TextControl |
+| Type                 | Control       |
+| -------------------- | ------------- |
+| `string`             | TextControl   |
 | `integer` / `number` | NumberControl |
-| `boolean` | ToggleControl |
-| `string` + `enum` | SelectControl |
+| `boolean`            | ToggleControl |
+| `string` + `enum`    | SelectControl |
 
 ```php
 'attributes' => array(

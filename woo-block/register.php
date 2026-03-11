@@ -86,10 +86,6 @@ add_action(
  * @return string Block HTML.
  */
 function epb_render_woo_products_block( $attributes ) {
-	// Check if WooCommerce is active.
-	if ( ! class_exists( 'WooCommerce' ) ) {
-		return '<p>WooCommerce is required for this block.</p>';
-	}
 
 	$count       = intval( $attributes['count'] ?? 3 );
 	$show_prices = $attributes['showPrices'] ?? true;

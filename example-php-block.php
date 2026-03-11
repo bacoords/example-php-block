@@ -15,4 +15,10 @@ define( 'EPB_URL', plugin_dir_url( __FILE__ ) );
 
 // Load block registrations.
 require_once EPB_DIR . 'basic-block/register.php';
-require_once EPB_DIR . 'woo-block/register.php';
+
+// Check if WooCommerce is active.
+function epb_woocommerce_loaded() {
+	require_once EPB_DIR . 'woo-block/register.php';
+	// Custom code here. WooCommerce is active and all plugins have been loaded...
+}
+add_action( 'woocommerce_loaded', 'epb_woocommerce_loaded' );
